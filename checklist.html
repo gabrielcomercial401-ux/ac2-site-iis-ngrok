@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist · AC2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="container">
+      <a class="marca" href="index.html">AC2 <span>· IIS + ngrok</span></a>
+      <nav class="menu">
+        <a href="index.html">Início</a>
+        <a href="arquitetura.html">Arquitetura</a>
+        <a href="acesso.html">Acesso</a>
+        <a href="qrcode.html">QR Code</a>
+        <a href="checklist.html">Checklist</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="selo">Antes de chamar o professor</span>
+      <h1>Checklist da apresentação</h1>
+      <p class="lead">Marque cada item conforme for testando. O progresso fica salvo neste navegador.</p>
+      <div class="progresso"><div></div></div>
+      <p id="contador"></p>
+    </section>
+
+    <section class="grade">
+      <div>
+        <h2>Servidor e aplicação</h2>
+        <ul class="checklist" id="checklist">
+          <li><label><input type="checkbox" id="c1"> A VM inicia</label></li>
+          <li><label><input type="checkbox" id="c2"> O Windows está configurado (pt-BR, ABNT2, atualizado)</label></li>
+          <li><label><input type="checkbox" id="c3"> O IIS está ativo (http://localhost abre a página padrão)</label></li>
+          <li><label><input type="checkbox" id="c4"> O site abre localmente (http://localhost/projeto/)</label></li>
+          <li><label><input type="checkbox" id="c5"> A porta do IIS é a mesma do ngrok</label></li>
+          <li><label><input type="checkbox" id="c6"> A URL do ngrok abre no celular</label></li>
+          <li><label><input type="checkbox" id="c7"> O QR Code abre o site</label></li>
+          <li><label><input type="checkbox" id="c8"> A arquitetura foi explicada</label></li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <p class="aviso">Ao concluir: apresente o site e encerre o ngrok (Ctrl+C no terminal) depois da avaliação.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      AC2 · Aula prática de hospedagem em VM · Prof. Nilvan Garcia de Almeida · <span data-ano></span>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

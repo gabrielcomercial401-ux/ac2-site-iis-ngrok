@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arquitetura · AC2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="container">
+      <a class="marca" href="index.html">AC2 <span>· IIS + ngrok</span></a>
+      <nav class="menu">
+        <a href="index.html">Início</a>
+        <a href="arquitetura.html">Arquitetura</a>
+        <a href="acesso.html">Acesso</a>
+        <a href="qrcode.html">QR Code</a>
+        <a href="checklist.html">Checklist</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="selo">Arquitetura da solução</span>
+      <h1>O caminho do site até o usuário</h1>
+      <p class="lead">Cada peça tem um papel. A ordem importa: primeiro o site precisa abrir no IIS, só depois o ngrok é ligado.</p>
+
+      <div class="fluxo">
+        <div class="etapa"><strong>Hyper-V / VirtualBox</strong><small>Executa a VM</small></div>
+        <div class="seta">→</div>
+        <div class="etapa"><strong>Windows Server</strong><small>Sistema da VM</small></div>
+        <div class="seta">→</div>
+        <div class="etapa"><strong>IIS</strong><small>Publica o site</small></div>
+        <div class="seta">→</div>
+        <div class="etapa"><strong>ngrok</strong><small>Cria a URL pública</small></div>
+        <div class="seta">→</div>
+        <div class="etapa"><strong>Celular e QR</strong><small>Abrem o site</small></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Papel de cada parte</h2>
+      <div class="grade">
+        <div class="card">
+          <h3>Máquina virtual (VM)</h3>
+          <p>Um computador simulado dentro do computador real. Ela isola o servidor: tem memória, processador e disco próprios e pode ser criada, desligada ou apagada sem afetar a máquina física.</p>
+        </div>
+        <div class="card">
+          <h3>IIS</h3>
+          <p>O servidor web do Windows. Ele escuta a porta 80, recebe as requisições HTTP e entrega os arquivos da pasta <code>C:\inetpub\wwwroot\projeto</code> (HTML, CSS, JS e imagens).</p>
+        </div>
+        <div class="card">
+          <h3>ngrok</h3>
+          <p>A VM não tem IP público. O agente do ngrok abre uma conexão de saída até a nuvem do ngrok, que devolve uma URL HTTPS pública e encaminha cada acesso pelo túnel até o IIS.</p>
+        </div>
+        <div class="card">
+          <h3>QR Code</h3>
+          <p>Só uma forma prática de levar a URL pública para o celular. Se o ngrok for reiniciado, a URL muda e o QR Code precisa ser gerado de novo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Como o acesso externo chega ao servidor</h2>
+      <div class="grade">
+        <div class="card"><span class="num">1</span><h3>Usuário externo</h3><p>Abre a URL pública HTTPS no celular (ou lê o QR Code).</p></div>
+        <div class="card"><span class="num">2</span><h3>Nuvem do ngrok</h3><p>Recebe a requisição e encaminha pelo túnel até o agente que roda na VM.</p></div>
+        <div class="card"><span class="num">3</span><h3>IIS na VM</h3><p>O agente entrega a requisição em <code>localhost:80</code> e o IIS responde com os arquivos do site.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Porta do IIS = porta do ngrok</h2>
+      <div class="grade">
+        <div class="card">
+          <h3>Configuração padrão</h3>
+          <p>IIS na porta <strong>80</strong></p>
+          <pre>http://localhost/projeto/
+ngrok http 80</pre>
+        </div>
+        <div class="card">
+          <h3>Configuração alternativa</h3>
+          <p>IIS na porta <strong>8080</strong></p>
+          <pre>http://localhost:8080/projeto/
+ngrok http 8080</pre>
+        </div>
+      </div>
+      <p class="aviso">Erro 404 indica endereço, pasta ou porta incorreta. Teste sempre em <code>http://localhost/projeto/</code> antes de ligar o ngrok.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      AC2 · Aula prática de hospedagem em VM · Prof. Nilvan Garcia de Almeida · <span data-ano></span>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

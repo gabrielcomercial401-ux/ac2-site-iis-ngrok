@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC2 · Site no IIS com ngrok</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="container">
+      <a class="marca" href="index.html">AC2 <span>· IIS + ngrok</span></a>
+      <nav class="menu">
+        <a href="index.html">Início</a>
+        <a href="arquitetura.html">Arquitetura</a>
+        <a href="acesso.html">Acesso</a>
+        <a href="qrcode.html">QR Code</a>
+        <a href="checklist.html">Checklist</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="selo">Server and Data Center Administration · FECAF</span>
+      <h1>Hospedagem de site em máquina virtual</h1>
+      <p class="lead">
+        Este site está rodando em uma máquina virtual com <strong>Windows Server 2022</strong>,
+        publicado pelo <strong>IIS</strong> e liberado para a internet pelo <strong>ngrok</strong>.
+        Se você está vendo esta página no celular, o caminho inteiro funcionou.
+      </p>
+      <div class="botoes">
+        <a class="btn primario" href="acesso.html">Ver de onde estou acessando</a>
+        <a class="btn" href="arquitetura.html">Como funciona</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Etapas da atividade</h2>
+      <div class="grade">
+        <div class="card">
+          <span class="num">1</span>
+          <h3>Máquina virtual</h3>
+          <p>Windows Server 2022 rodando no Hyper-V ou VirtualBox, com 4 GB de RAM, 2 processadores e 40 GB de disco.</p>
+        </div>
+        <div class="card">
+          <span class="num">2</span>
+          <h3>Site no IIS</h3>
+          <p>Os arquivos ficam em <code>C:\inetpub\wwwroot\projeto</code> e abrem em <code>http://localhost/projeto/</code>.</p>
+        </div>
+        <div class="card">
+          <span class="num">3</span>
+          <h3>Acesso público</h3>
+          <p>O comando <code>ngrok http 80</code> cria uma URL HTTPS pública que encaminha para o IIS.</p>
+        </div>
+        <div class="card">
+          <span class="num">4</span>
+          <h3>QR Code</h3>
+          <p>A mesma URL pública vira um QR Code para abrir o site no celular com dados móveis.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tecnologias</h2>
+      <div class="grade">
+        <div class="card"><h3>HTML, CSS e JavaScript</h3><p>Site 100% estático: sem back-end, sem API e sem banco de dados.</p></div>
+        <div class="card"><h3>Windows Server 2022</h3><p>Sistema operacional do servidor, instalado dentro da VM.</p></div>
+        <div class="card"><h3>IIS</h3><p>Internet Information Services, o servidor web da Microsoft, escutando na porta 80.</p></div>
+        <div class="card"><h3>ngrok</h3><p>Cria um túnel seguro e temporário da internet até a porta do IIS.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      AC2 · Aula prática de hospedagem em VM · Prof. Nilvan Garcia de Almeida · <span data-ano></span>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

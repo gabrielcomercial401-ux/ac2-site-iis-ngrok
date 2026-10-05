@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso · AC2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="container">
+      <a class="marca" href="index.html">AC2 <span>· IIS + ngrok</span></a>
+      <nav class="menu">
+        <a href="index.html">Início</a>
+        <a href="arquitetura.html">Arquitetura</a>
+        <a href="acesso.html">Acesso</a>
+        <a href="qrcode.html">QR Code</a>
+        <a href="checklist.html">Checklist</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="selo">Validação</span>
+      <h1>De onde você está acessando?</h1>
+      <p class="lead">Esta página lê o endereço que o navegador usou. Dentro da VM aparece <code>localhost</code>; no celular, aparece o domínio público do ngrok.</p>
+      <p><span id="selo-acesso" class="status"></span></p>
+    </section>
+
+    <section>
+      <div class="card">
+        <table class="info" id="info-acesso"></table>
+      </div>
+    </section>
+
+    <section>
+      <div class="botoes">
+        <a class="btn primario" href="qrcode.html">Gerar QR Code desta URL</a>
+        <a class="btn" href="checklist.html">Abrir checklist</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      AC2 · Aula prática de hospedagem em VM · Prof. Nilvan Garcia de Almeida · <span data-ano></span>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

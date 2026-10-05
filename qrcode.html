@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code · AC2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="container">
+      <a class="marca" href="index.html">AC2 <span>· IIS + ngrok</span></a>
+      <nav class="menu">
+        <a href="index.html">Início</a>
+        <a href="arquitetura.html">Arquitetura</a>
+        <a href="acesso.html">Acesso</a>
+        <a href="qrcode.html">QR Code</a>
+        <a href="checklist.html">Checklist</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="selo">Etapa 5</span>
+      <h1>QR Code da URL pública</h1>
+      <p class="lead">Cole a URL HTTPS que o ngrok mostrou no terminal e aponte a câmera do celular (com dados móveis, fora do Wi-Fi da faculdade).</p>
+    </section>
+
+    <section class="qr-area">
+      <div class="card">
+        <h3>URL do ngrok</h3>
+        <p style="margin-bottom:12px">Exemplo: <code>https://xxxx.ngrok-free.app/projeto/</code></p>
+        <input type="url" id="url-qr" placeholder="https://xxxx.ngrok-free.app/projeto/">
+        <div class="botoes"><button class="btn primario" id="btn-gerar" type="button">Gerar QR Code</button></div>
+        <p id="aviso-qr" style="margin-top:16px"></p>
+      </div>
+      <div class="card">
+        <div id="qrcode"></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="aviso">Se o ngrok for reiniciado, a URL muda. Gere outro QR Code. No plano gratuito, o celular pode mostrar uma tela de aviso do ngrok antes do site: toque em <strong>Visit Site</strong>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      AC2 · Aula prática de hospedagem em VM · Prof. Nilvan Garcia de Almeida · <span data-ano></span>
+    </div>
+  </footer>
+  <script src="js/qrcode.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
